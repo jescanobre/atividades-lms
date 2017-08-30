@@ -11,7 +11,7 @@ Escolha um tema de sua preferência e faça um página web que atenda ao que se 
 
 
 # Atividade 02
-Instruções: Faça um “blog” contendo artigos sobre um assunto específico sempre usando as tags estruturais semânticas do HTML 5 (<article>, <section>, <header>, <footer>). Escolha um tema de sua preferência e implemente o que se pede:
+Instruções: Faça um “blog” contendo artigos sobre um assunto específico sempre usando as tags estruturais semânticas do HTML 5 ("<article>", "<section>", "<header>", "<footer>"). Escolha um tema de sua preferência e implemente o que se pede:
 
 1. Seu blog deve conter um cabeçalho com o nome do blog
 2. Coloque o nome do blog também no título
