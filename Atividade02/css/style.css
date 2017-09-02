@@ -1,0 +1,61 @@
+/*NAO TA FUNCIONANDO*/
+@font-face {
+    font-family: helveticaneue;
+    src: url("fonts/HelveticaNeue.otf");
+}
+
+body{
+    background-color: white;
+    margin: auto;
+
+}
+
+h2 {
+    font:28px helveticaneue, Arial, Tahoma, Sans-serif;
+    font-weight: bold;
+
+}
+
+p {
+    font:15px helveticaneue, Arial, Tahoma, Sans-serif;
+    font-weight: ligth;
+    text-align: justify;
+}
+
+
+.container{
+   
+    margin: 0 auto;
+    width: 1000px;
+}
+
+#bor{
+    padding: 50px;
+    background-color: rgba(248, 246, 246, 0.76);
+}
+
+.cabecalho {
+    padding: 5px 100px 5px 5px;
+    text-align:left;
+    background-color: #E30C1C;
+}
+
+#menu {
+    background: rgb(173, 36, 33);
+    padding: 10px 100px 10px 10px;
+}
+
+h1{
+    margin: auto;
+    color: white;
+}
+
+footer{
+	background: rgb(16, 15, 15);
+    color:white;
+    display: block;
+    padding: 1em;
+    font:11px helveticaneue, Arial, Tahoma, Sans-serif;
+    clear: left;
+    text-align: left;
+}   
