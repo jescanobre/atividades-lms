@@ -10,8 +10,15 @@ body{
 
 }
 
+h1{
+    font:38px helveticaneue, Arial, Tahoma, Sans-serif;
+    text-align: center;
+    margin: auto;
+    color: white;
+}
+
 h2 {
-    font:28px helveticaneue, Arial, Tahoma, Sans-serif;
+    font:25px helveticaneue, Arial, Tahoma, Sans-serif;
     font-weight: bold;
 
 }
@@ -35,7 +42,7 @@ p {
 }
 
 .cabecalho {
-    padding: 5px 100px 5px 5px;
+    padding: 10px 100px 10px 10px;
     text-align:left;
     background-color: #E30C1C;
 }
@@ -43,11 +50,22 @@ p {
 #menu {
     background: rgb(173, 36, 33);
     padding: 10px 100px 10px 10px;
+    text-align: center;
+    font:15px helveticaneue, Arial, Tahoma, Sans-serif;
 }
 
-h1{
-    margin: auto;
-    color: white;
+.alinhar {
+	display: inline-block;
+	width: 90px;
+}
+
+input:hover{
+	color:#606060;
+	border:2px solid #000fff
+}
+
+.bt{
+	cursor: pointer;
 }
 
 footer{
