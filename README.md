@@ -26,5 +26,12 @@ Instruções: Faça um “blog” contendo artigos sobre um assunto específico 
   d. Um input do tipo radiobox <br>
   e. Um input do tipo checkbox <br>
  
+# Atividade 03
+1. Incremente o blog da atividade em sala 2 substituindo tags div por tags semânticas do HTML 5 (<article>, <section>, <header>, <footer> ...).
+2. Adicione um folha de estilo CSS externa para estilizar sua página HTML. Use, pelo menos, três tipos de seletores diferentes ao fazer as próximas questões.
+3. Adicione um gradiente em background usando o “gradient_bg.png” usando de modo que fique parecido com isso:
+https://www.dropbox.com/s/a40i7ku680oph8w/gradient_bg.png
+4. Adicione bordas, margin e padding aos seus artigos usando tanto as propriedades separadamente quanto os atalhos. Utilize pelo menos três estilos de borda diferentes, três cores diferentes para as bordas. Como unidade de medida, utilize, pelo menos, duas unidades de medida relativas e duas medidas absolutas.
+5. Mude o estilo do texto mudando a fonte, a cor, o tamanho e alinhe o texto para o centro. 
 
 
