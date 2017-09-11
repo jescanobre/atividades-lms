@@ -32,18 +32,18 @@ a:hover {
     transition: 0.5s;
 }
 
-.container {
+body .container {
     padding: 20px 20px 0 20px;
     width: 70%;
     margin: 0 auto;
 }
 
-.container article h2 {
+body .container article h2 {
     padding-bottom: 10px;
     color: #270C07;
 }
 
-.container article {
+body .container article {
     padding: 50px;
     margin: 30px;
     background-color: rgb(228, 227, 227);
@@ -85,6 +85,7 @@ footer {
     clear: left;
     text-align: left;
 }   
+
 footer a {
     color:white;
 
