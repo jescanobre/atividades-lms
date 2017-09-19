@@ -42,7 +42,7 @@ span {
     font-family: "Segoe UI",Arial,sans-serif;
     font-size: 15px;
     top: 23px;
-    right: -500;
+    text-align: right;
     position: relative;
     letter-spacing: 4px;
 }
@@ -57,7 +57,8 @@ span {
     list-style: none;
 }
 
-.nav-superior > ul > li > a, .dropdown .dropdown-button {
+.nav-superior > ul > li > a, 
+.dropdown .dropdown-button {
     text-decoration: none;
     display: block;
     padding: 17px;
@@ -68,18 +69,6 @@ span {
     font-size: 17px;
     letter-spacing: 3px;
 }
-
-/*.nav-superior .dropdown {
-    width: 100%;
-    font-size: 20px;
-	cursor: context-menu;
-	background-color: #f1f1f1;
-    color: #4a4a4a;
-    padding: 0px 0px 60px 20px;
-	box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
-    display: none;
-    float: left;
-}*/
 
 .dropdown{
     float: left;
@@ -104,7 +93,7 @@ span {
     float: none;
 }
 
-.nav-superior > ul > li > a,
+.nav-superior > ul > li > a:hover,
 .dropdown .dropdown-button:hover {
     background-color: #fff; 
     color: #000;
@@ -147,10 +136,12 @@ span {
     list-style: none;
 }
 
-.nav-lateral ul li a{
+.nav-lateral ul li a {
     display: block;
     padding-left: 15px;
     text-decoration: none;
+    font-family: "Segoe UI",Arial,sans-serif;
+    color: #000;
     font-size: 17px;
 }
 
