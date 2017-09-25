@@ -1,0 +1,96 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+header > .cabecalho {
+    background-color: gray; 
+    padding: 20px;
+}
+
+header > .nav-superior {
+    overflow: auto;
+    background-color: pink;
+    
+}
+
+.nav-superior ul {
+    list-style: none;
+}
+
+.dropdown {
+    float: left;
+}
+
+.nav-superior ul > li > a, 
+.dropdown .dropdown-button {
+    text-decoration: none;
+    color: #C4A0B2;
+    position: relative;
+}
+
+.dropdown .dropdown-button {
+    float: none;
+    padding: 10px;
+}
+
+.dropdown-content {
+    position: absolute;
+    overflow: hidden;
+
+    max-height: 0;
+    background-color: #FCE6EA;
+    width: 150px;
+    float: left;
+    transition: max-height 100ms;
+    
+}
+
+/*.dropdown-content {
+    position: absolute;
+    overflow: auto;
+    max-height: 0;
+    background-color: #FCE6EA;
+    width: 150px;
+    float: left;
+    
+}*/
+
+.dropdown-content:hover {
+    
+    overflow: visible;
+max-height: 1000px;
+
+}
+
+/*TENTAR ENTENDER*/
+.dropdown-content > ul > li > a {
+    display: block;
+    padding: 5px 20px;
+    text-decoration: none;
+    color: #ffffff;
+}
+
+
+.dropdown .dropdown-button:hover{ 
+    color: white;
+}
+
+.nav-superior ul > li > a:hover {
+    background-color: pink;
+    color: white;
+}
+
+.dropdown:hover .dropdown-content {
+    overflow: auto;
+    max-height: 1000px;
+}
+
+
+/* .dropdown-content > ul > li > a { */
+    /* display: block; */
+    /* padding: 5px 20px; */
+    /* text-decoration: none; */
+    /* color: #000; */
+/* } */
+
