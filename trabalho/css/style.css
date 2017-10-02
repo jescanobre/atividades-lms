@@ -9,6 +9,8 @@ body{
 }
 header  {
 box-shadow: 0 0px 5px 0 rgba(0, 0, 0, 0.35);
+position: relative;
+z-index: 1;
 }
 
 header > .cabecalho {
@@ -93,7 +95,7 @@ h3 {
     background: linear-gradient(#efefef,white);
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.35);
     float: left;
-    z-index: -10;
+    /* z-index: -10; */
 }
 
 .nav-lateral ul {
