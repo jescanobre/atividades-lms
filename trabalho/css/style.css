@@ -3,15 +3,23 @@
     margin: 0;
 }
 
+body{
+    font-family: "Segoe UI", Arial, sans-serif;
+    background-color: #efefef;
+}
+header  {
+box-shadow: 0 0px 5px 0 rgba(0, 0, 0, 0.35);
+}
+
 header > .cabecalho {
-    background-color: gray; 
+    background-color: #795745; 
     padding: 20px;
 }
 
 header > .nav-superior {
     overflow: auto;
-    background-color: pink;
-    
+    background-color: #795745;
+    padding-left: 10px; 
 }
 
 .nav-superior ul {
@@ -25,8 +33,9 @@ header > .nav-superior {
 .nav-superior ul > li > a, 
 .dropdown .dropdown-button {
     text-decoration: none;
-    color: #C4A0B2;
+    color: white;
     position: relative;
+    text-transform: uppercase;
 }
 
 .dropdown .dropdown-button {
@@ -37,47 +46,34 @@ header > .nav-superior {
 .dropdown-content {
     position: absolute;
     overflow: hidden;
-
     max-height: 0;
-    background-color: #FCE6EA;
+    background-color: #795745;
     width: 150px;
     float: left;
-    transition: max-height 100ms;
-    
+    transition: max-height 300ms;
+    box-shadow: 0 0px 10px 0 rgba(0, 0, 0, 0.35);/*como colocar a sombra só na parte inferior?*/
 }
-
-/*.dropdown-content {
-    position: absolute;
-    overflow: auto;
-    max-height: 0;
-    background-color: #FCE6EA;
-    width: 150px;
-    float: left;
-    
-}*/
 
 .dropdown-content:hover {
-    
     overflow: visible;
-max-height: 1000px;
-
+    max-height: 1000px;
 }
 
-/*TENTAR ENTENDER*/
 .dropdown-content > ul > li > a {
     display: block;
     padding: 5px 20px;
     text-decoration: none;
-    color: #ffffff;
+    color: white;
 }
 
 
 .dropdown .dropdown-button:hover{ 
     color: white;
+    background-color: #5e4337;
 }
 
 .nav-superior ul > li > a:hover {
-    background-color: pink;
+    background-color: #5e4337;
     color: white;
 }
 
@@ -86,11 +82,113 @@ max-height: 1000px;
     max-height: 1000px;
 }
 
+h3 {
+    padding: 15px 15px 10px 15px; 
+    font-family: "Segoe UI",Arial,sans-serif;
+    color: #5e4337;
+}
 
-/* .dropdown-content > ul > li > a { */
-    /* display: block; */
-    /* padding: 5px 20px; */
-    /* text-decoration: none; */
-    /* color: #000; */
-/* } */
+.nav-lateral {
+    background: linear-gradient(#efefef,white);
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.35);
+    position: relative;
+    z-index: -10;
+}
 
+.nav-lateral ul {
+    list-style: none;
+}
+
+.nav-lateral ul li a {
+    display: block;
+    padding-left: 15px;
+    text-decoration: none;
+    font-family: "Segoe UI",Arial,sans-serif;
+    color: #5e4337;
+}
+
+.nav-lateral ul li a:hover {
+    background-color: #ff276c;
+    color: white;
+}
+
+.nav-direita {
+    position: fixed;
+	top: 70%;
+	right: 5%;
+    float: right;
+    position: relative;
+    width: 10vw;
+    height: 100%;
+    z-index: -10;
+    margin: auto;
+    text-align: center;
+}
+
+/* .nav-direita ul {
+    list-style: none;
+    /* text-align: center; 
+    padding-bottom: 15px;
+} */
+
+/* .nav-direita ul li a {
+    display: block;
+    padding-left: 15px;
+    text-decoration: none;
+    font-family: "Segoe UI",Arial,sans-serif;
+    color: black;
+} */
+
+img {
+    margin-top: 30px;
+    z-index: -10;
+    position: relative;
+   
+    animation: mymove 3s infinite;
+    animation-timing-function: linear;
+  
+}
+
+@keyframes mymove {
+    from {left: 30px;
+    transform: rotate(0deg);
+} to {left: 300px;
+        transform: rotate(360deg);}}
+
+
+/* .container{
+    width: 60%;
+    float: left;
+    margin: auto;
+    margin-left: 30px; 
+    text-align: justify;
+} */
+
+@media screen and (min-width:600px) {
+  .nav-lateral {
+    float: left;
+    width: 15%;
+    position: relative;
+    height: 100vh;
+
+}@keyframes mymove {
+    from {left: 30px;
+    transform: rotate(0deg);
+} to {left: 150px;
+        transform: rotate(360deg);}}
+}
+
+footer {
+	background: rgb(16, 15, 15);
+    color:white;
+    display: block;
+    padding: 1em;
+    font:11px "Quicksand", sans-serif;
+    clear: left;
+    text-align: left;
+}   
+
+footer a {
+    color:white;
+
+}   
