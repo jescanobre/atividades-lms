@@ -29,8 +29,7 @@ header > .nav-superior {
 
 .dropdown {
     float: left;
-    position: relative;
-    z-index: 10;
+   
 }
 
 .nav-superior ul > li > a, 
@@ -94,6 +93,7 @@ h3 {
     background: linear-gradient(#efefef,white);
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.35);
     float: left;
+    z-index: -10;
 }
 
 .nav-lateral ul {
@@ -170,7 +170,7 @@ footer {
 	background: rgb(16, 15, 15);
     color:white;
     display: block;
-    padding: 1em;
+    padding: 10px;
     font:11px "Quicksand", sans-serif;
     clear: left;
     text-align: left;
@@ -178,5 +178,4 @@ footer {
 
 footer a {
     color:white;
-
 }   
