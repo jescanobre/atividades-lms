@@ -141,6 +141,10 @@ h3 {
     color: black;
 }
 
+.nav-direita ul li a:hover {
+    cursor: pointer;
+    
+}
 .container{
     
     margin-left: 30px; 
