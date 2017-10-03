@@ -127,9 +127,24 @@ h3 {
     text-align: center;
 }
 
+.nav-direita ul {
+    list-style: none;
+    text-align: center; 
+    padding-bottom: 15px;
+}
+
+.nav-direita ul li a {
+    display: block;
+    padding-left: 15px;
+    text-decoration: none;
+    font-family: "Segoe UI",Arial,sans-serif;
+    color: black;
+}
+
 .container{
     
     margin-left: 30px; 
+    position: relative;
 }
 
 img {
@@ -174,7 +189,7 @@ img {
         clear: left;
         display: block;
         bottom: 0;
-       
+       position: absolute;
     }  
 
     @keyframes mymove {
