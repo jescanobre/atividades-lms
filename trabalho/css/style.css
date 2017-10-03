@@ -140,9 +140,9 @@ h3 {
 }
 
 .container{
-    margin-left: 20px; 
- 
+    margin-left: 30px; 
     position: relative;
+    margin-right: 30px;
 }
 
 img {
