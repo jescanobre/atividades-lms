@@ -116,13 +116,12 @@ h3 {
 }
 
 .nav-direita {
-    position: fixed;
+    /* position: fixed; */
 	top: 40%;
 	right: 3%;
-    float: right;
+    
     position: relative;
-    width: 10vw;
-    height: 100%;
+    
     z-index: -10;
     margin: auto;
     text-align: center;
@@ -155,15 +154,23 @@ img {
 
 @media screen and (min-width:600px) {
     .nav-lateral {
-    float: left;
-    width: 15%;
-    position: relative;
-    height: 100vh;
+        float: left;
+        width: 15%;
+        position: relative;
+        height: 100vh;
     }
+
+    .nav-direita {
+        float: right;
+        width: 10vw;
+        height: 100%; 
+    }
+
     footer {
-        display: block;
         clear: left;
-    } 
+        display: block;
+       
+    }  
 
     @keyframes mymove {
         from {left: 30px;
@@ -174,11 +181,9 @@ img {
 }
 footer {
 	background: rgb(16, 15, 15);
-    color:#6D4C4C;
-    
+    color:white;
     padding: 10px;
     font:11px "Quicksand", sans-serif;
-    
     text-align: left;
 }   
 
