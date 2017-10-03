@@ -165,7 +165,7 @@ img {
 @keyframes mymove {
     from {left: 30px;
     transform: rotate(0deg);
-} to {left: 300px;
+} to {left: 150px;
         transform: rotate(360deg);}
 }
 
@@ -199,7 +199,7 @@ img {
     @keyframes mymove {
         from {left: 30px;
         transform: rotate(0deg);
-    } to {left: 200px;
+    } to {left: 300px;
             transform: rotate(360deg);}
     }
 }
