@@ -209,6 +209,7 @@ footer {
     text-align: center;
     position: relative;
     bottom: 0;
+    display: block;
 }   
 
 footer a {
