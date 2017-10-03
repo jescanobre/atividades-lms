@@ -201,8 +201,10 @@ footer a {
     }
 
     .container {
-        width:100%;
-
+        width:70%;
+        float: left;
+        margin: auto; 
+        margin-left: 20px; 
     }
 
     /* footer {
