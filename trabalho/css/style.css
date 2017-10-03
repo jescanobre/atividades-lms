@@ -104,7 +104,7 @@ h3 {
 
 .nav-lateral ul li a {
     display: block;
-    padding-left: 15px;
+    padding-left: 20px;
     text-decoration: none;
     font-family: "Segoe UI",Arial,sans-serif;
     color: #5e4337;
@@ -154,27 +154,31 @@ img {
 }
 
 @media screen and (min-width:600px) {
-  .nav-lateral {
+    .nav-lateral {
     float: left;
     width: 15%;
     position: relative;
     height: 100vh;
+    }
+    footer {
+        display: block;
+        clear: left;
+    } 
 
-    }@keyframes mymove {
+    @keyframes mymove {
         from {left: 30px;
         transform: rotate(0deg);
     } to {left: 200px;
             transform: rotate(360deg);}
     }
 }
-
 footer {
 	background: rgb(16, 15, 15);
-    color:white;
-    display: block;
+    color:#6D4C4C;
+    
     padding: 10px;
     font:11px "Quicksand", sans-serif;
-    clear: left;
+    
     text-align: left;
 }   
 
