@@ -95,7 +95,6 @@ h3 {
     background: linear-gradient(#efefef,white);
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.35);
     
-   
 }
 
 .nav-lateral ul {
@@ -125,6 +124,7 @@ h3 {
     z-index: -10;
     margin: auto;
     text-align: center;
+    background-color: white; 
 }
 
 .nav-direita ul {
@@ -143,6 +143,7 @@ h3 {
 
 .nav-direita ul li a:hover {
     cursor: pointer;
+    background-color:blue; 
 
 }
 .container{
@@ -161,6 +162,22 @@ img {
     animation-timing-function: linear;
   
 }
+
+footer {
+	background: rgb(16, 15, 15);
+    color:white;
+    padding: 10px;
+    font:11px "Segoe UI",Arial,sans-serif;
+    text-align: center;
+    position: relative;
+    bottom: 0;
+    display: block;
+}   
+
+footer a {
+    color:white;
+}   
+
 
 @keyframes mymove {
     from {left: 30px;
@@ -201,17 +218,3 @@ img {
             transform: rotate(360deg);}
     }
 }
-footer {
-	background: rgb(16, 15, 15);
-    color:white;
-    padding: 10px;
-    font:11px "Segoe UI",Arial,sans-serif;
-    text-align: center;
-    position: relative;
-    bottom: 0;
-    display: block;
-}   
-
-footer a {
-    color:white;
-}   
