@@ -86,7 +86,7 @@ header > .nav-superior {
 }
 
 h3 {
-    padding: 15px 15px 10px 15px; 
+    padding: 15px 15px 10px 20px; 
     font-family: "Segoe UI",Arial,sans-serif;
     color: #5e4337;
 }
@@ -115,13 +115,8 @@ h3 {
 }
 
 .nav-direita {
-    /* position: fixed; */
-	top: 40%;
-	right: 3%;
-    
+	
     position: relative;
-    
-    z-index: -10;
     margin: auto;
     text-align: center;
     background-color: white; 
@@ -130,25 +125,26 @@ h3 {
 .nav-direita ul {
     list-style: none;
     text-align: center; 
-    padding-bottom: 15px;
+    padding: 15px;
 }
 
 .nav-direita ul li a {
     display: block;
-    padding-left: 15px;
     text-decoration: none;
     font-family: "Segoe UI",Arial,sans-serif;
-    color: black;
+    color: #5e4337;
 }
 
 .nav-direita ul li a:hover {
     cursor: pointer;
-    background-color:blue; 
+    background-color:#ff276c; 
+    color: white;
 
 }
+
 .container{
     margin-left: 20px; 
-    margin-left: 30px; 
+ 
     position: relative;
 }
 
@@ -157,10 +153,8 @@ img {
     margin-top: 50px;
     z-index: -10;
     position: relative;
-   
     animation: mymove 3s infinite;
     animation-timing-function: linear;
-  
 }
 
 /* footer {
@@ -198,6 +192,10 @@ footer a {
         float: right;
         width: 10vw;
         height: 100%; 
+        position: relative;
+        z-index: -10;
+        top: 40%;
+        right: 3%;
     }
 
     .container {
@@ -216,7 +214,7 @@ footer a {
     @keyframes mymove {
         from {left: 30px;
         transform: rotate(0deg);
-    } to {left: 300px;
+    } to {left: 200px;
             transform: rotate(360deg);}
     }
 }
