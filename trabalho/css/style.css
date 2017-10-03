@@ -173,6 +173,7 @@ img {
     footer {
         clear: left;
         display: block;
+        bottom: 0;
        
     }  
 
@@ -189,6 +190,7 @@ footer {
     padding: 10px;
     font:11px "Quicksand", sans-serif;
     text-align: left;
+    position: relative;
 }   
 
 footer a {
