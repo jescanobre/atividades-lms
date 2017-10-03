@@ -194,8 +194,7 @@ footer a {
         height: 100%; 
         position: relative;
         z-index: -10;
-        top: 40%;
-        right: 3%;
+        
     }
 
     .container {
