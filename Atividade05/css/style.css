@@ -77,7 +77,13 @@
     }
 
     .nav-lateral {
-        visibility: hidden;
+        display: none;
+    }
+
+     .nav-lateral-on {
+        display: block;
+        /* transition: all 0.4s linear; */
+    }
     }
 
     /* .on {
@@ -85,4 +91,3 @@
         height: 200px;
     }  */
     
-} 
