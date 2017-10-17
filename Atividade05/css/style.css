@@ -23,7 +23,7 @@
     padding: 20px;
     display: block;
     width: 130px;
-	height: 600px;
+    height: 600px;
 }
 
 .nav-lateral ul {
@@ -60,6 +60,32 @@
     color: #352f2f;
 }
 
+/* .nav-lateral:inactive {
+    display: none;
+} */
+
+
+.conteudo-acordeon {
+    /* width: 400px;
+    height: 400px;
+    margin: auto;
+    position: relative; */
+
+    width: 70%;
+    float: left;
+    margin: auto;
+    margin-left: 20px; 
+}
+
+.conteudo-botao {
+    background-color: pink;
+    cursor: pointer;
+}
+
+.conteudo-botao>a {
+    text-decoration: none;
+}
+
  @media screen and (max-width: 480px){
 
     .cabecalho {
@@ -84,10 +110,10 @@
         display: block;
         /* transition: all 0.4s linear; */
     }
-    }
 
-    /* .on {
-        width: 200px;
-        height: 200px;
-    }  */
-    
+    .conteudo-acordeon {
+        margin-left: 30px; 
+        position: relative;
+        margin-right: 30px;
+    }
+}
