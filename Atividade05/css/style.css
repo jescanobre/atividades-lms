@@ -24,6 +24,7 @@
     display: block;
     width: 130px;
     height: 600px;
+    transition: all 3s linear;
 }
 
 .nav-lateral ul {
@@ -59,11 +60,6 @@
     background-color: white;
     color: #352f2f;
 }
-
-/* .nav-lateral:inactive {
-    display: none;
-} */
-
 
 .conteudo-acordeon {
     /* width: 400px;
@@ -106,10 +102,6 @@
         display: none;
     }
 
-     .nav-lateral-on {
-        display: block;
-        /* transition: all 0.4s linear; */
-    }
 
     .conteudo-acordeon {
         margin-left: 30px; 
