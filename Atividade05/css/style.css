@@ -45,6 +45,7 @@
     display: none;
     background-color: #352f2f;
     border: none;
+    border-radius: 20;
     outline: none;
     top: 0px;
     padding:  20px;
@@ -55,30 +56,24 @@
     cursor: pointer;
 }
 
-.bt:active {
-    transform: translate(4%, 4%);
+.bt:active, .bt:hover {
     background-color: white;
     color: #352f2f;
 }
 
-.conteudo-acordeon {
-    /* width: 400px;
-    height: 400px;
-    margin: auto;
-    position: relative; */
-
+.accordeon {
     width: 70%;
     float: left;
     margin: auto;
     margin-left: 20px; 
 }
 
-.conteudo-botao {
+.botao-accordeon {
     background-color: pink;
     cursor: pointer;
 }
 
-.conteudo-botao>a {
+.botao-accordeon>a {
     text-decoration: none;
 }
 
@@ -104,8 +99,36 @@
 
 
     .conteudo-acordeon {
-        margin-left: 30px; 
-        position: relative;
-        margin-right: 30px;
+        /* margin-left: 30px;  */
+        /* position: relative; */
+        /* margin-right: 30px; */
+        overflow: hidden;
+        min-height: 0px;
+        max-height: 0px;
+        animation-duration: 0.8s;
+        animation-fill-mode: forwards;
+        animation-iteration-count: 1; 
+    }
+}
+
+@keyframes abrir-conteudo {
+    from {
+        min-height: 0px;
+        max-height: 0px;
+    }    
+    to {
+        min-height: 50px;
+        max-height: 50px;
+    }
+}
+
+@keyframes fechar-conteudo {
+    from {
+        min-height: 50px;
+        max-height: 50px;
+    }    
+    to {
+        min-height: 0px;
+        max-height: 0px;
     }
 }
