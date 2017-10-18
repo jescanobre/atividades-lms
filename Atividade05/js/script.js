@@ -16,7 +16,7 @@ for (let i=0; i<botoesAccordeon.length; i++){
     botoesAccordeon[i].addEventListener("click", function(){
         if(conteudosAccordeon[i].classList.contains("active")) {
             conteudosAccordeon[i].classList.remove("active");
-
+            botoesAccordeon[i].style = " ";
             conteudosAccordeon[i].style.maxHeight = "0px";
         }
         else { 
@@ -24,9 +24,13 @@ for (let i=0; i<botoesAccordeon.length; i++){
                 e.classList.remove("active");
                 e.style.maxHeight = "0px";
             })
+
             conteudosAccordeon[i].classList.add("active");
-            
+            botoesAccordeon[i].style.borderRadius = "8px 8px 0 0";
+            conteudosAccordeon[i].style.borderRadius ="0 0 8px 8px";
             conteudosAccordeon[i].style.maxHeight = conteudosAccordeon[i].scrollHeight + "px";
         }
+        
     })
+
 }
