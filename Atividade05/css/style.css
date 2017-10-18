@@ -76,6 +76,7 @@
 
 .accordeon {
     width: 800px;
+    font-family: sans-serif;
 } 
 
 .accordeon .item-accordeon {
