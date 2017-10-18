@@ -16,7 +16,7 @@ for (let i=0; i<botoesAccordeon.length; i++){
     botoesAccordeon[i].addEventListener("click", function(){
         if(conteudosAccordeon[i].classList.contains("active")) {
             conteudosAccordeon[i].classList.remove("active");
-            botoesAccordeon[i].style = " ";
+            botoesAccordeon[i].style.borderRadius ="8px";
             conteudosAccordeon[i].style.maxHeight = "0px";
         }
         else { 
