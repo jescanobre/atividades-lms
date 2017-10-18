@@ -1,48 +1,32 @@
 let botao = document.querySelector(".bt");
 let navLateral = document.querySelector(".nav-lateral");
+let container = document.querySelector(".container");
+let cabecalho = document.querySelector(".cabecalho");
 
-function abrirOuFecharNav() {
-    if (navLateral.style.display=="block"){
-        fecharNav();
-    }
-
-    else {
-        abrirNav();
-    }
-}
-
-function abrirNav() {
-    navLateral.style.display = "block";
-    
-}
-
-function fecharNav() {
-    navLateral.style.display = "none";
-}
-
-botao.addEventListener('click', function() {
-    abrirOuFecharNav(); 
+botao.addEventListener ("click", function(){
+    navLateral.classList.toggle("active");
+    container.classList.toggle("active");
+    cabecalho.classList.toggle("active");
 });
 
+let botoesAccordeon = document.querySelectorAll(".accordeon .item-accordeon .botao-accordeon");
+let conteudosAccordeon = document.querySelectorAll(".accordeon .item-accordeon .conteudo-accordeon");
 
-let botaoAccordeon = document.querySelector(".botao-accordeon");
-let conteudoAccordeon = document.querySelector(".conteudo-accordeon");
+for (let i=0; i<botoesAccordeon.length; i++){
+    botoesAccordeon[i].addEventListener("click", function(){
+        if(conteudosAccordeon[i].classList.contains("active")) {
+            conteudosAccordeon[i].classList.remove("active");
 
-function conteudo() {
-    if (conteudoAccordeon.style.animationName=="abrir-conteudo"){
-        abrirConteudo();
-    }
-    else {
-        fecharConteudo();
-    }
+            conteudosAccordeon[i].style.maxHeight = "0px";
+        }
+        else { 
+            conteudosAccordeon.forEach(function(e){
+                e.classList.remove("active");
+                e.style.maxHeight = "0px";
+            })
+            conteudosAccordeon[i].classList.add("active");
+            
+            conteudosAccordeon[i].style.maxHeight = conteudosAccordeon[i].scrollHeight + "px";
+        }
+    })
 }
-
-function abrirConteudo() {
-    conteudoAccordeon.style.animationName = "abrir-conteudo";
-}
-
-function fecharConteudo() {
-    conteudoAccordeon.style.animationName = "fechar-conteudo";
-}
-
-botaoAccordeon.addEventListener("click", conteudo)
