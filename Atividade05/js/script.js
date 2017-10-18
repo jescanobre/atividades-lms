@@ -13,7 +13,6 @@ let botoesAccordeon = document.querySelectorAll(".accordeon .item-accordeon .bot
 let conteudosAccordeon = document.querySelectorAll(".accordeon .item-accordeon .conteudo-accordeon");
 
 for (let i=0; i<botoesAccordeon.length; i++){
-    
     botoesAccordeon[i].addEventListener("click", function(){
         if(conteudosAccordeon[i].classList.contains("active")) {
             conteudosAccordeon[i].classList.remove("active");
