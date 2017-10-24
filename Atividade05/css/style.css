@@ -23,11 +23,12 @@
     padding: 20px;
     display: block;
     width: 200px;
-    height: 100vh;
+    height: calc( 100vh - 48px);
     position: fixed;
     box-sizing: border-box;
     transition: transform 500ms;
     z-index: 10;
+
 }
 
 .nav-lateral.active {

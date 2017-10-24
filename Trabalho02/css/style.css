@@ -14,7 +14,7 @@
 .cabecalho {
     background-color: #4f4544;
     width: 100%;
-    height: 50;
+    height: 50px;
 }
 
 .cabecalho .nome-software {
@@ -59,7 +59,7 @@
 
 .lista-amigos {
     width: 230px;
-    height: 100vh;
+    height: calc(100vh - 50px);
     font-family: Helvetica, Arial, sans-serif; 
     font-size: 14px;
     padding: 5px;
