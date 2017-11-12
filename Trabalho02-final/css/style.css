@@ -1,0 +1,317 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+.modal-login {
+    display: block;
+    position: fixed;
+    background-color: #e03756;
+    width: 30%;
+    top: 35%;
+    left: 35%;
+    border-radius: 20px 20px 20px 20px;
+    animation-name: splash;
+    animation-duration: 600ms; 
+}
+
+.modal-login .modal-cabecalho {
+    padding: 20px;
+    color: white;
+    border-radius: 20px 20px 0px 0px;
+    overflow: auto;
+}
+
+.modal-login .modal-corpo {
+padding: 20px;
+color: white;
+border-radius: 0px 0px 20px 20px;
+}
+
+.modal-login .modal-corpo #form-submit {
+    padding: 5px;
+    margin: 15px 0px;
+    cursor: pointer;
+    background-color: white;
+}
+
+.modal-login .modal-corpo #campo_id {
+    width: 150px;
+    height: 40px;
+}
+
+.modal-overlay {
+    display: block;
+    position: fixed;
+    background-color: rgba(70, 70, 70, 1);
+    width: 100%;
+    height: 100%;
+    animation-name: fade;
+    animation-duration: 600ms;
+}
+
+.modal-login .modal-cabecalho .titulo {
+    float: left;
+}
+
+.layout {
+    /* display:"none"; */
+    width: 900px;
+    height: 100vh;
+    margin: auto;
+    background-color: #f3f2f2;
+    
+}
+
+
+.cabecalho {
+    background-color: #e03756;
+    height: 60px;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.cabecalho .titulo {
+    float: left;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 38px;
+    margin-left: 20px; 
+    overflow: auto;
+    
+}
+
+.cabecalho .grupo-selecionado {
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 17px;
+    position: relative;
+    text-align: center;
+    margin: auto;
+    box-sizing: border-box;
+    top: 20px;
+    left: 200px;
+}
+
+.cabecalho .botao {
+    float: left;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 15px;
+    background-color: rgba(128, 128, 128, 0.856);
+    cursor: pointer;
+    border: none;
+    padding: 6px 8px;
+    position: relative;
+    outline: none;
+    top: 50%;
+    left: 74%;           
+    transform: translate(0%, -50%);
+}
+
+.botao:hover {
+    background-color: white;
+    color: rgba(128, 128, 128, 0.856);
+}
+
+.adicionar-grupo {
+    margin-bottom: 20px;
+    left: 50%; 
+    transform: translateX(-50%);
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+    border: solid 2px #e03756;
+    border-radius: 5px;
+    height: 40px;
+    width: 40px; 
+    margin-top: 12px; 
+}
+
+.adicionar-grupo span {
+    font-size: 28px;
+    color: #7a7a7a;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.adicionar-grupo:hover {
+    background-color: #e03756;
+}
+
+.adicionar-grupo:hover span {
+    color: white;
+}
+
+.modal-addgrupo {
+    display: none;
+    padding: 10px;
+    background-color: #e03756;
+    transition: all 0.5s;
+    animation-name: addGrupo;
+    animation-duration: 700ms;
+    
+    /* border-radius: 20px 20px 20px 20px; */
+}
+
+.modal-addgrupo #nome-do-grupo, 
+.modal-addgrupo #id-do-grupo {
+    padding: 5px;
+    margin: 5px 0px;
+    width: 146px;
+}
+
+.modal-addgrupo .add-grupo-submit {
+    padding: 5px;
+    margin: 10px 45px;
+    cursor: pointer;
+}
+
+
+@keyframes addGrupo {
+    from {
+        max-height: 0;
+    } to{
+        max-height: 600px; 
+    }
+}
+
+@keyframes fechar-modal {
+    from {
+        max-height: 600px;
+    }
+    to {
+        max-height: 0;
+    }
+}
+
+.lista-grupos {
+    overflow: auto;
+    width: 220px;
+    height: calc(100vh - 60px); 
+    background-color: #efefef;
+    box-shadow: 2px 0px 3px #80878A;
+    text-align: left;
+    float:left;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 14px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.lista-grupos .grupo {
+    cursor: pointer;
+    display: block;
+    overflow: auto;
+}
+
+.lista-grupos .grupo .icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    padding: 5px 0 5px 0; 
+}
+
+.lista-grupos .grupo .nome {
+    color: black;
+    position: relative;
+    bottom: 15px;
+    left: 5px;
+    
+} 
+
+.mensagens {
+    margin-left: 20px;
+    margin-top: 20px;
+    font-family: Helvetica, Arial, sans-serif;   
+    float: left; 
+}
+
+.mensagens .mensagem {
+    background-color: #b9b5b5;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    width: 600px;
+    
+}
+
+.mensagens .mensagem .titulo-mensagem {
+    padding: 10px;
+    margin-top: 3px;
+    color: #c22645;
+    font-size: 12px;
+}
+
+.mensagens .mensagem .conteudo-mensagem {
+    padding: 3px 15px 15px 15px;
+    color: rgb(58, 55, 56);
+    font-size: 14px;
+}
+
+/* enviar mensagem */
+.enviar-mensagem {
+    position: absolute;
+    bottom: 8px;
+    margin-left: 230px;  
+    
+}
+
+.enviar-mensagem #campo_mensagem {
+    outline: none;
+    box-sizing: border-box;
+    font-size: 14px;
+    padding-left: 10px;
+    padding-right: 30px;
+    height: 40px;
+    width: 600px;
+    border-radius: 5px; 
+    border: solid 2px rgba(125, 128, 129, 0.6);
+    
+}
+
+.enviar-mensagem #campo_mensagem:focus {
+    border: solid 2px #db3654;
+}
+
+.enviar-mensagem .enviar-men {
+    border: none;
+    background-color: rgba(255, 255, 255, 0);
+    user-select: none;
+    cursor: pointer;
+}
+
+@keyframes fade {
+    from {
+        background-color: rgba(70, 70, 70, 0); 
+    } to {
+        background-color: rgba(70, 70, 70, 1);
+    }
+}
+
+@keyframes splash {
+    from {
+        top: -30%;
+        transform: scale(1,0);
+    } to {
+        top: 35%;
+        transform: scale(1,1);
+    }
+}
+
+@keyframes in {
+    from {
+		opacity: 0;
+		height: 0;
+	}
+	to {
+		opacity: 1;
+		height: 900px;
+	}
+    
+}

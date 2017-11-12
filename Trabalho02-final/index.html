@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Trabalho 02</title>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <div class="modal-overlay"> </div>
+        <div class="modal-login">
+            <div class="modal-cabecalho">
+                <h2 class="titulo">
+                    Insira seu ID
+                </h2>
+            </div>
+            <div class="modal-corpo">
+                <form>
+                    <input type="text" placeholder="Qual seu ID?" id="campo_id">
+                    <input type="submit" id="form-submit">
+                </form>
+            </div>
+        </div> 
+
+        <div class="layout">
+            <header class="cabecalho">
+                <span class="titulo"> Universe </span>
+                <span class="grupo-selecionado"> </span>
+                <button class="botao"> Entrar</button>
+            </header>
+            
+            <div class="lista-grupos">
+                <div class="adicionar-grupo"><span>+</span></div> 
+                <div class="modal-addgrupo">
+                    <form id="add-grupo">
+                        <input placeholder="nome do grupo" type="text" id="nome-do-grupo"><br>
+                        <input placeholder="id do grupo" type="text" id="id-do-grupo"><br>
+                        <!-- <input placeholder="url da foto do grupo" type="text" id="foto-do-grupo"> <br> -->
+                        <input type="submit" class="add-grupo-submit" value="Adicionar"> <br>
+                    </form>
+                </div>
+            </div>
+                    
+            <div class="container">
+                <div class="mensagens">
+
+                </div>
+
+                <div class="enviar-mensagem">
+                    <form>
+                        <input type="text" placeholder="Escreva uma mensagem..." id="campo_mensagem">
+                        <input type="submit" class="enviar-men">
+                    </form>
+                </div> 
+            </div> 
+        </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
