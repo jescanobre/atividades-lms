@@ -64,7 +64,7 @@ border-radius: 0px 0px 20px 20px;
     height: 100vh;
     margin: auto;
     background-color: #f3f2f2;
-    
+    overflow: auto;
 }
 
 
@@ -237,8 +237,7 @@ border-radius: 0px 0px 20px 20px;
     background-color: #b9b5b5;
     border-radius: 5px;
     margin-bottom: 10px;
-    width: 600px;
-    
+    width: 400px;
 }
 
 .mensagens .mensagem .titulo-mensagem {
@@ -247,6 +246,25 @@ border-radius: 0px 0px 20px 20px;
     color: #c22645;
     font-size: 12px;
 }
+
+/* .mensagem .eu {
+    float: right;
+} 
+
+.eu .titulo-mensagem {
+    padding: 10px;
+    margin-top: 3px;
+    color: #c22645;
+    font-size: 12px;
+}
+
+.eu .conteudo-mensagem {
+    padding: 3px 15px 15px 15px;
+    color: rgb(58, 55, 56);
+    font-size: 14px;
+}
+
+*/
 
 .mensagens .mensagem .conteudo-mensagem {
     padding: 3px 15px 15px 15px;

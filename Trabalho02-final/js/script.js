@@ -5,7 +5,7 @@ let modalLogin = document.querySelector(".modal-login");
 let modalSobreposicao = document.querySelector(".modal-overlay");
 let botao = document.querySelector(".botao");
 
-let usuario = "user";
+let usuariologado = "user";
 
 function aparecerMensageiro() {
     layout.style.display = "block";
@@ -27,7 +27,7 @@ function estadoBotaoLogin(){
 }
 
 function login() {
-    if (campoIdUsuario.value == usuario) {
+    if (campoIdUsuario.value == usuariologado) {
         localStorage.idUser = campoIdUsuario.value;
         fecharModalLogin();
         estadoBotaoLogin();
@@ -73,6 +73,17 @@ function fecharModalLogin() {
 };
 
 
+if (localStorage.idUser == "user") {
+    aparecerMensageiro();
+    estadoBotaoLogin();
+    fecharModalLogin();
+    requisicoes();
+    
+}
+
+else {  }
+
+function requisicoes() {
 
 let listaGrupos = document.querySelector(".lista-grupos");
 let mensagensCss = document.querySelector(".mensagens");
@@ -122,17 +133,18 @@ function inserirGrupo(dado){
 
 submitGrupo.addEventListener("click", function(evento){
     evento.preventDefault();
-
-    // if (campoNomeGrupo.value != " " && campoIdGrupo.value != " ") {
+    if (campoNomeGrupo.value != null && campoIdGrupo.value != null && String(campoNomeGrupo.value).trim() != "" && String(campoIdGrupo.value).trim()  != "" && campoNomeGrupo.value.legth != 0 && campoIdGrupo.value.legth != 0){
         let nome = campoNomeGrupo.value;
         let id = campoIdGrupo.value;       
-    // }
-    
-    let dado = {"groupName": nome, "groupID": id};
-    inserirGrupo(dado);
+        let dado = {"groupName": nome, "groupID": id};
+        inserirGrupo(dado);
 
-    campoNomeGrupo.value = "";
-    campoIdGrupo.value = "";
+        campoNomeGrupo.value = "";
+        campoIdGrupo.value = "";
+    } 
+    else {
+        alert("Todos os campos devem ser preenchidos!")
+    }
 });    
 
 function updateMensagens(mensagem) {
@@ -180,6 +192,10 @@ function mostrarMensagem(usuario, texto) {
 
     mensagem.appendChild(tituloMensagem);
     mensagem.appendChild(conteudoMensagem);
+
+    if(usuario == localStorage.idUser){
+        mensagem.classList.add("eu");
+      }
 
     mensagensCss.appendChild(mensagem);
 }
@@ -255,3 +271,5 @@ xhttp.onreadystatechange = function() {
 
 xhttp.open("GET", "http://rest.learncode.academy/api/mariajesca/groups", true);
 xhttp.send();
+
+}
