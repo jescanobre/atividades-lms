@@ -85,6 +85,13 @@ else {  }
 
 function requisicoes() {
 
+let software = document.querySelector(".titulo");
+software.addEventListener("click", function(){
+    let divMensagens = document.getElementsByClassName("mensagens");
+    divMensagens.innerHTML = " ";
+});
+
+
 let listaGrupos = document.querySelector(".lista-grupos");
 let mensagensCss = document.querySelector(".mensagens");
 let grupoSelecionado = document.querySelector(".grupo-selecionado");
