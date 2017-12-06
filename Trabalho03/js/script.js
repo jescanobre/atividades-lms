@@ -61,7 +61,7 @@ $(function(){
     function adicionarProduto(produto){
         let modelo = [
             // '<div class="row">',
-                '<div class="card col-md-3"  id="produto'+produto.id+'">', /*por que esse id aqui?*/ 
+                '<div class="card col-md-3"  style="border-top: none; border-bottom: none;" id="produto'+produto.id+'">', /*por que esse id aqui?*/ 
                     '<img class="card-img-top" src="img/'+produto.imagem+'" alt="Card image cap">',
                     '<div class="card-block">',
                         '<h4 class="card-title">'+produto.nome+'</h4><br>',
