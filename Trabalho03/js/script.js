@@ -376,7 +376,7 @@ $(function(){
         btHis.style.display = "block";  
     }
 
-    if(localStorage.user == ""){
+    if(localStorage.user == "" || localStorage.user == undefined){
         mostrarCadELog();
         // console.log(localStorage.user);
     }
