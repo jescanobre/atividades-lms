@@ -78,7 +78,6 @@ if (localStorage.idUser == "user") {
     estadoBotaoLogin();
     fecharModalLogin();
     requisicoes();
-    
 }
 
 else {  }

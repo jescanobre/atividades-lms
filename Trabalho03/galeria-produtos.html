@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Loja </title>
+    <link rel="stylesheet" href="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      header {
+        background-color: #F7685C;
+        /* padding: 5px; */
+
+      }
+
+      .navbar-default .navbar-brand {
+        color: #ffffff;
+      }
+
+      .navbar-default .navbar-brand:hover,
+      .navbar-default .navbar-brand:focus {
+        color: #ffffff;
+      }
+
+      .navbar-default .na > div > a {
+        color: #fff;
+
+      }
+
+      .navbar-default .na > div > a:hover,
+      .navbar-default .na > div > a:focus {
+        color: #efefef;
+        background-color: #E14D3E;
+      }
+
+      .navbar-default .na > .active > a,
+      .navbar-default .na > .active > a:hover,
+      .navbar-default .na > .active > a:focus {
+        color: #efefef;
+        background-color: #E14D3E;
+      }
+
+      .dropdown-menu-right {
+        right: 0;
+        left: auto;
+        width: 300px;
+      }
+
+      .carrinho {
+          display: none;
+      }
+
+      .sair {
+          display: none;
+      }
+
+      .dropdown-menu>div>a:hover { background: #f1f9fd }
+
+      .card-img-overlay{
+        display: none;
+      }
+
+      .card-img-overlay .car {
+          float: left;
+      }
+
+      .card-img-overlay .quant {        
+        float: right;
+      }
+
+      .card-img-overlay .quant>input {
+        width: 60px;
+      }
+
+      .card:hover .card-img-overlay{
+          display: block;
+          /* animation: fadeIn .5s ease; */
+      }
+      
+
+   </style>
+  </head>
+<body>
+    <header style="max-height: 120px; font-size: 18px;">
+        <nav class="navbar navbar-default navbar-fixed-top justify-content-between" style="padding: 0px 16px 0px 16px; ">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">Lojinha</a>
+                </div>
+
+                <div class="row na">
+                    <div class= "nav-item dropdown cadastro">
+                        <a  class=" nav-link dropdown-toggle" data-toggle="dropdown" href="#"><span class="fa fa-user fa-fw"></span>  Me cadastrar</a>
+                        <div class="dropdown-menu dropdown-menu-right" role="menu">
+                            <div class="col-lg-12">
+                                <div class="text-center"><h3><b>Cadastro</b></h3></div>
+                                <form id="cadastro-form" action="" method="post" role="form" autocomplete="off">
+                                    <div class="form-group">
+                                        <input type="text" name="nome" id="campo_usuario" tabindex="1" class="form-control" placeholder="Como você se chama?" value="">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <input type="email" name="email" id="campo_email" tabindex="2" class="form-control" placeholder="Qual seu e-mail?" value="">
+                                    </div>
+        
+                                    <div class="form-group">
+                                        <input type="password" name="senha" id="campo_senha" tabindex="3" class="form-control" placeholder="Qual sua senha?">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="password" name="confirma-senha" id="campo_confirma_senha" tabindex="4" class="form-control" placeholder="Corfime a senha">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-xs-6 offset-4">
+                                                <input type="submit" name="cadastro-enviar" id="cadastro-enviar" tabindex="5" class="form-control btn btn-info" value="Cadastrar">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="nav-item dropdown login">
+                        <a class=" nav-link dropdown-toggle" data-toggle="dropdown" href="#"><span class="fa fa-sign-in" aria-hidden="true"></span>  Já tenho uma conta</a>
+                        <div class="dropdown-menu dropdown-menu-right" role="menu">
+                            <div class="col-lg-12">
+                                <div class="text-center"><h3><b>Log In</b></h3></div>
+                                <form id="login-form" method="post" autocomplete="off">
+
+                                    <div class="form-group">
+                                        <label for="usuario">Nome</label>
+                                        <input type="text" name="usuario" id="login_campo_usuario" tabindex="1" class="form-control" placeholder="Nome do usuário" value="" autocomplete="off">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="senha">Senha</label>
+                                        <input type="password" name="senha" id="login_campo_senha" tabindex="2" class="form-control" placeholder="Senha" autocomplete="off">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-5 offset-3">
+                                                <input type="submit" name="login-enviar" id="login-enviar" tabindex="3" class="form-control btn btn-success" value="Entrar">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="nav-item dropdown carrinho">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"><span class="fa fa-shopping-cart" aria-hidden="true"></span> Carrinho</a>
+                        <div class="dropdown-menu dropdown-menu-right" role="menu">
+                            <div class="col-lg-12">
+                                <div class="text-center" id="compras"><h5><b>Carrinho</b></h5></div>
+
+                                <div>
+                                    <div class="row" >
+                                        <div class="col-xs-6 offset-3">
+                                            <a href="seus-produtos.html" class="btn btn-success" id="finalizar" tabindex="3"><span>Finalizar compra</span> </a>
+                                            <!-- <input type="submit" name="finalizar" id="finalizar" tabindex="3" class="form-control btn btn-success" value="Finalizar compra"> -->
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="nav-item dropdown historico">
+                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"><span  aria-hidden="true"></span>  Histórico de compras </a>
+                            <div class="dropdown-menu dropdown-menu-right" role="menu">
+                                <div class="col-lg-12">
+                                    <div class="text-center"><h5><b>Histórico de compras </b></h5>
+                                    
+                                    </div>
+                                    <div id="historico" class="row">
+
+                                    </div>
+    
+                                </div>
+                            </div>
+                        </div>
+
+                    <div class="nav-item sair">
+                        <a class="nav-link" id="sair" href="galeria-produtos.html"><span class="fa fa-sign-out" aria-hidden="true"></span>  Sair</a>
+                    </div>
+
+                </div>
+
+            </div>
+        </nav>
+    </header>
+    <br>
+    <br>
+
+    <div class="container">
+        <div class="row" id="card-deck">
+            <!-- <div class="row">
+                <div class="card col-md-3">
+                    <img class="card-img-top" src="img/eleven.jpg" alt="Card image cap">
+                    <div class="card-block">
+                        <h4 class="card-title">Boneco Funko Pop Harry Potter</h4><br>
+                        <span class="card-text">R$ 98,90</span><br>
+                        <span class="card-text"><small class="text-muted">3x de R$ 32,96</small></span>
+                        <br>
+                    </div>
+                    <div class="card-img-overlay "> 
+                        <div class="bt-cart">
+                            <a href="http://sonarsystems.co.uk" class="btn btn-success"><span class="fa fa-shopping-cart" aria-hidden="true"></span> </a>
+                        </div>
+                        <div class="quant">
+                            <input type="number" class="form-control input-sm" value="1" min="1">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card col-md-3" >
+                    <img class="card-img-top" src="img/harrypotter.jpg" alt="Card image cap">
+                    <div class="card-block">
+                        <h4 class="card-title">Boneco Funko Pop Harry Potter</h4><br>
+                        <span class="card-text">R$ 98,90</span><br>
+                        <span class="card-text"><small class="text-muted">3x de R$ 32,96</small></span>
+                        <br>
+                    </div>
+                    <div class="card-img-overlay"> 
+                        <div class="bt-cart">
+                            <a href="http://sonarsystems.co.uk" class="btn btn-success"><span class="fa fa-shopping-cart" aria-hidden="true"></span> </a>
+                        </div>
+                        <div class="quant">
+                            <input type="number" class="form-control input-sm" value="1" min="1">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card col-md-3">
+                    <img class="card-img-top" src="img/harrypotter.jpg" alt="Card image cap">
+                    <div class="card-block">
+                        <h4 class="card-title">Boneco Funko Pop Harry Potter</h4><br>
+                        <span class="card-text">R$ 98,90</span><br>
+                        <span class="card-text"><small class="text-muted">3x de R$ 32,96</small></span>
+                        <br>
+                    </div>
+                    <div class="card-img-overlay"> 
+                        <a href="http://sonarsystems.co.uk" class="btn btn-success"><span class="fa fa-shopping-cart" aria-hidden="true"></span> </a>
+                    </div>
+                </div>
+
+                <div class="card  col-md-3">
+                    <img class="card-img-top" src="img/harrypotter.jpg" alt="Card image cap">
+                    <div class="card-block">
+                        <h4 class="card-title">Boneco Funko Pop Harry Potter</h4><br>
+                        <span class="card-text">R$ 98,90</span><br>
+                        <span class="card-text"><small class="text-muted">3x de R$ 32,96</small></span>
+                        <br>
+                    </div>
+                    <div class="card-img-overlay"> 
+                            <a href="http://sonarsystems.co.uk" class="btn btn-success"><span class="fa fa-shopping-cart" aria-hidden="true"></span> </a>
+                        </div>
+                </div>
+                
+            </div>
+<br>
+            <div class="row">
+                <div class="card col-md-3">
+                    <img class="card-img-top" src="img/harrypotter.jpg" alt="Card image cap">
+                    <div class="card-block">
+                        <h4 class="card-title">Boneco Funko Pop Harry Potter</h4><br>
+                        <span class="card-text">R$ 98,90</span><br>
+                        <span class="card-text"><small class="text-muted">3x de R$ 32,96</small></span>
+                        <br>
+                    </div>
+                    <div class="card-img-overlay"> 
+                            <a href="http://sonarsystems.co.uk" class="btn btn-success"><span class="fa fa-shopping-cart" aria-hidden="true"></span> </a>
+                        </div>
+                </div>
+
+                <div class="card col-md-3">
+                    <img class="card-img-top" src="img/harrypotter.jpg" alt="Card image cap" >
+                    <div class="card-block">
+                        <h4 class="card-title">Boneco Funko Pop Harry Potter</h4><br>
+                        <span class="card-text">R$ 98,90</span><br>
+                        <span class="card-text"><small class="text-muted">3x de R$ 32,96</small></span>
+                        <br>
+                    </div>
+                    <div class="card-img-overlay"> 
+                            <a href="http://sonarsystems.co.uk" class="btn btn-success"><span class="fa fa-shopping-cart" aria-hidden="true"></span> </a>
+                        </div>
+                </div>
+
+                <div class="card col-md-3">
+                    <img class="card-img-top" src="img/harrypotter.jpg" alt="Card image cap">
+                    <div class="card-block">
+                        <h4 class="card-title">Boneco Funko Pop Harry Potter</h4><br>
+                        <span class="card-text">R$ 98,90</span><br>
+                        <span class="card-text"><small class="text-muted">3x de R$ 32,96</small></span>
+                        <br>
+                    </div>
+                    <div class="card-img-overlay"> 
+                            <a href="http://sonarsystems.co.uk" class="btn btn-success"><span class="fa fa-shopping-cart" aria-hidden="true"></span> </a>
+                        </div>
+                </div>
+
+                <div class="card col-md-3" >
+                    <img class="card-img-top" src="img/harrypotter.jpg" alt="Card image cap">
+                    <div class="card-block">
+                        <h4 class="card-title">Boneco Funko Pop Harry Potter</h4><br>
+                        <span class="card-text">R$ 98,90</span><br>
+                        <span class="card-text"><small class="text-muted">3x de R$ 32,96</small></span>
+                        <br>
+                    </div>
+                    <div class="card-img-overlay options"> 
+                            <a href="http://sonarsystems.co.uk" class="btn btn-success"><span class="fa fa-shopping-cart" aria-hidden="true"></span> </a>
+                        </div>
+                </div>
+            </div> -->
+        </div>
+    </div>
+    <br>
+    <br>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js" ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    <script src="js/script.js"></script>
+    <script>
+    $(function(){
+        $('[data-toggle="tooltip"]').tooltip();
+    });</script>
+</body>
+</html>
