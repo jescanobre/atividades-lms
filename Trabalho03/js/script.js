@@ -69,20 +69,29 @@ $(function(){
                         '<span class="card-text"><small class="text-muted">'+produto.parcelas+'</small></span>',
                         '<br>',
                     '</div>',
-                    '<div class="card-img-overlay ">',
-                        '<div class="car bt-cart-'+produto.id+'">',
-                            '<a href="#" class="btn btn-success"><span class="fa fa-shopping-cart" aria-hidden="true"></span> </a>',
-                        '</div>',
-                        '<div class="quant">',
-                            '<input type="number" class="form-control input-sm qtd" value="1" min="1">',
-                        '</div>',
+                    '<div class="card-img-overlay " id="overlay-'+produto.id+'">',
+                        
                     '</div>',
                 '</div>',
                 '<br>'
                 
             // '</div>'
-        ].join('');    
+        ].join('');   
+
         $cardDeck.append(modelo);
+
+        if(localStorage.user != undefined && localStorage.user.length != 0){
+            let modelo2 = [
+                '<div class="car bt-cart-'+produto.id+'">',
+                '<a href="#" class="btn btn-success"><span class="fa fa-shopping-cart" aria-hidden="true"></span> </a>',
+                '</div>',
+                '<div class="quant">',
+                    '<input type="number" class="form-control input-sm qtd" value="1" min="1">',
+                '</div>'
+            ].join('');
+
+            $("#overlay-"+produto.id).append(modelo2);
+        } 
         
         $(".bt-cart-"+produto.id).click(function(){
             let quantidade = $(this).parent().find(".qtd").val();
@@ -273,9 +282,25 @@ $(function(){
     $("#guardar").click(function(){
         $carrinho = JSON.parse(localStorage.carrinho);
         $.each($carrinho, function(i, produto){ 
-            $.post("http://rest.learncode.academy/api/mariajesca/comprasfeitas", produto);
-        });
+            $.post("http://rest.learncode.academy/api/mariajesca/comprasfeitas", produto).done(function(){
+                $carrinho.splice(i, 1, "");
+                let ok = true;
+                $.each($carrinho, function(j, item){
+                    if(item != ""){
+                        ok = false;
+                    }
+                });
+                if (ok){
+                    localStorage.carrinho = "";
+                    $("#valor-total").html("");
+                    $("#compras").html("");                    
+                }
+                
+            });
+            $("#tr-" + produto.id).remove(); 
 
+        });
+        
         alert("Compra realizada com sucesso!");
     });
 
@@ -322,10 +347,7 @@ $(function(){
     // });
     mostrarHistorico();
     mostrarCarrinho();
-    
-});
 
-$(document).ready(function() { 
     function taVazio(texto){
         // console.log(texto);
         return texto == null || texto == undefined || texto == "" || String(texto).trim() == "" || texto.length == 0 ;  
@@ -406,6 +428,7 @@ $(document).ready(function() {
                             $("#login_campo_usuario").val("");
                             $("#login_campo_senha").val("");
                             mostrarCarEOut(); 
+                            mostrarProdutos();
                             alert ("usuario logado");
                             return;
                         }
