@@ -61,7 +61,7 @@ $(function(){
     function adicionarProduto(produto){
         let modelo = [
             // '<div class="row">',
-                '<div class="card col-md-3"  style="border-top: none; border-bottom: none;" id="produto'+produto.id+'">', /*por que esse id aqui?*/ 
+                '<div class="card col-md-3"  style="border-right: none; border-top: none; border-bottom: none; margin-bottom: 15px" id="produto'+produto.id+'">', /*por que esse id aqui?*/ 
                     '<img class="card-img-top" src="img/'+produto.imagem+'" alt="Card image cap">',
                     '<div class="card-block">',
                         '<h4 class="card-title">'+produto.nome+'</h4><br>',
@@ -203,7 +203,7 @@ $(function(){
                 '<td class="col-sm-1 col-md-1 text-center"><strong id="total-'+produto.id+'">R$'+(produto.preco * produto.quantidade).toFixed(2)+'</strong></td>',
                 '<td class="col-sm-1 col-md-1">',
                     '<button type="button" id="remover-'+produto.id+'" class="btn btn-danger">',
-                        '<span class="glyphicon glyphicon-remove"></span> Remover',
+                        '<span>Remover</span> ',
                     '</button>',
                 '</td>',
             '</tr>'
