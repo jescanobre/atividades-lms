@@ -48,6 +48,32 @@ let produtos = [
 ];
 
 $(function(){
+
+    function formatarData(data){
+        let dia = data.getDate();
+        if (dia.toString().length == 1){
+            dia = "0" + dia;
+        }
+        let mes = data.getMonth() + 1;
+        if (mes.toString().length == 1){
+            mes = "0" + mes;
+        }
+        let ano = data.getFullYear();
+        return dia +"/"+ mes +"/"+ ano;
+    }
+
+    function formatarHora(data){
+        let hora = data.getHours();
+        if (hora.toString().length == 1){
+            hora = "0" + hora;
+        }
+        let minutos = data.getMinutes();
+        if (minutos.toString().length == 1){
+            minutos = "0" + minutos;
+        }
+        return hora +":"+ minutos; 
+    }
+
     $cardDeck = $("#card-deck");  
 
     // console.log("funfou!");
@@ -65,7 +91,7 @@ $(function(){
                     '<img class="card-img-top" src="img/'+produto.imagem+'" alt="Card image cap">',
                     '<div class="card-block">',
                         '<h4 class="card-title">'+produto.nome+'</h4><br>',
-                        '<span class="card-text">R$ '+produto.preco+',00</span><br>',
+                        '<span class="card-text">R$ '+produto.preco+'</span><br>',
                         '<span class="card-text"><small class="text-muted">'+produto.parcelas+'</small></span>',
                         '<br>',
                     '</div>',
@@ -248,6 +274,9 @@ $(function(){
     }
 
     function mostrarCompras(){
+        if(localStorage.carrinho == "" || localStorage.carrinho == undefined){
+            return;
+        }
         $carrinho = JSON.parse(localStorage.carrinho);
         $.each($carrinho, function(i, item){ 
             if(item != undefined) {
@@ -258,6 +287,7 @@ $(function(){
     }
 
     if(String(window.location.href).includes("seus-produtos.html")){
+        mostrarHistorico();
         mostrarCompras();
     }
     console.log(window.location);
@@ -277,75 +307,69 @@ $(function(){
 
     function mostrarTotal(){
         $("#valor-total").html(totalCarrinho().toFixed(2));
-    }
+    } 
 
     $("#guardar").click(function(){
-        $carrinho = JSON.parse(localStorage.carrinho);
-        $.each($carrinho, function(i, produto){ 
-            $.post("http://rest.learncode.academy/api/mariajesca/comprasfeitas", produto).done(function(){
-                $carrinho.splice(i, 1, "");
-                let ok = true;
-                $.each($carrinho, function(j, item){
-                    if(item != ""){
-                        ok = false;
-                    }
-                });
-                if (ok){
-                    localStorage.carrinho = "";
-                    $("#valor-total").html("");
-                    $("#compras").html("");                    
-                }
-                
-            });
-            $("#tr-" + produto.id).remove(); 
+        console.log(localStorage.user.email);
+        console.log("here");
 
-        });
+        if(localStorage.carrinho == "" || localStorage.carrinho == undefined){
+            return;
+        }
+
+        $usuario = JSON.parse(localStorage.user);
+        $carrinho = JSON.parse(localStorage.carrinho);
+        $data = new Date();
+        $compra = {data: formatarData($data), hora: formatarHora($data), total: totalCarrinho().toFixed(2)}; 
         
+        $.post("http://rest.learncode.academy/api/mariajesca/compras-"+ $usuario.email, $compra).done(function(){
+            $.each($carrinho, function(j, item){
+                $("#tr-" + item.id).remove();
+            });   
+            localStorage.carrinho = "";
+            $("#valor-total").html("");
+            $("#compras").html("");
+             
+        });
         alert("Compra realizada com sucesso!");
+        mostrarHistorico();  
     });
 
-    $historico = $("#historico");
-
-    function addHistorico(produto){
-        let modeloCarrinho = [
-            '<div>',
-                '<div class="row ">',
-                    '<div class="col-11 offset-1" >',
-                        '<div class="row">',
-                            '<div class="col-3">',
-                                '<img style="width: 70px;" src="img/'+produto.imagem+'">',
-                            '</div>',
-                                
-                            '<div class="col-7 offset-2">',
-                                '<div class="row"> '+produto.nome+' </div>',
-                                '<div class="row">',
-                                    '<div class="col-8 justify-content"><span class="card-text"><small class="text-muted">Quantidade:'+produto.quantidade+'</small></span></div>',
-                                    '<div class="col-4 justify-content"><span style="font-size: 13px;" class="card-text">R$'+(produto.preco*produto.quantidade).toFixed(2)+'</span></div>',
-                                '</div>',
-                            '</div>', 
-                        '</div>',
-                    '</div>',
-                    '<br>',
-                '</div>',
-            '</div>'
+    function addHistorico(compra){
+        $historico = $("#historico");
+        let modeloHistorico = [
+            '<tr>',
+                '<td>',
+                    compra.data,
+                '</td>',
+                '<td>',
+                    compra.hora,
+                '</td>',
+                '<td>',
+                    compra.total,
+                '</td>', 
+            '</tr>'                    
         ].join('');
 
-        $historico.append(modeloCarrinho);        
+        $historico.append(modeloHistorico);        
     }
 
     function mostrarHistorico(){
-        $.getJSON("http://rest.learncode.academy/api/mariajesca/comprasfeitas", function(historico, status){
+        $usuario = JSON.parse(localStorage.user);
+        $historico = $("#historico");        
+        $historico.html("");
+        $.getJSON("http://rest.learncode.academy/api/mariajesca/compras-"+ $usuario.email, function(historico, status){
             if(status == "success"){
-                $.each(historico, function(i, produto){
-                    addHistorico(produto);
+                $.each(historico, function(i, compra){
+                    addHistorico(compra);
                 });
             }
-        });     
+        });    
     }
     // $(".historico").click(function(){
 
     // });
-    mostrarHistorico();
+
     mostrarCarrinho();
 
     function taVazio(texto){
@@ -358,14 +382,13 @@ $(function(){
     let btLogin = document.querySelector(".login");
     let btCarrinho = document.querySelector(".carrinho");
     let btSair = document.querySelector(".sair");
-    let btHis = document.querySelector(".historico");
+    
 
     function mostrarCadELog() {
         btCadastro.style.display = "block";
         btLogin.style.display = "block";
         btCarrinho.style.display = "none";
         btSair.style.display = "none";  
-        btHis.style.display = "none";  
     }
     
     function mostrarCarEOut() {
@@ -373,7 +396,7 @@ $(function(){
         btLogin.style.display = "none";
         btCarrinho.style.display = "block";
         btSair.style.display = "block";
-        btHis.style.display = "block";  
+        
     }
 
     if(localStorage.user == "" || localStorage.user == undefined){
@@ -389,20 +412,36 @@ $(function(){
         evento.preventDefault();
         let dados = {"nome":$("#campo_usuario").val(), "email":$("#campo_email").val(), "senha":$("#campo_senha").val()};
         let campoSenhaC = $("#campo_confirma_senha").val();
+        $ok = true;
 
-        
-        if (taVazio(dados.nome) || taVazio(dados.email) || taVazio(dados.senha) || taVazio(campoSenhaC)) {
+        if(taVazio(dados.nome) || taVazio(dados.email) || taVazio(dados.senha) || taVazio(campoSenhaC)) {
             alert ("Todos os campos devem ser preenchidos");
             return ;
         }
         
         if(campoSenhaC == dados.senha){
-            $.post("http://rest.learncode.academy/api/mariajesca/usuariosloja", dados);
-            alert("Deu certo!");
-            $("#campo_usuario").val("");
-            $("#campo_email").val("");
-            $("#campo_senha").val("");
-            $("#campo_confirma_senha").val("");
+            $.getJSON("http://rest.learncode.academy/api/mariajesca/usuariosloja", function(result, status){
+                if(status == "success"){
+                    $.each(result, function(i, usuario){
+                        if(usuario.email == dados.email){
+                            $ok = false;
+                        }
+                    });
+                    if(!$ok){
+                        alert("O e-mail já existe!");
+                        // localStorage.user = "";
+                    }
+                    else {
+                        $.post("http://rest.learncode.academy/api/mariajesca/usuariosloja", dados);
+                        alert("Deu certo!");
+                        $("#campo_usuario").val("");
+                        $("#campo_email").val("");
+                        $("#campo_senha").val("");
+                        $("#campo_confirma_senha").val("");
+                    }
+                }
+            });        
+
         }
  
         else {
@@ -412,9 +451,9 @@ $(function(){
 
     $("#login-enviar").click(function(evento){
         evento.preventDefault();
-        let usuario = {"nome": $("#login_campo_usuario").val(), "senha": $("#login_campo_senha").val()};
+        let usuario = {"email": $("#login_campo_usuario").val(), "senha": $("#login_campo_senha").val()};
         
-        if (taVazio(usuario.nome) || taVazio(usuario.senha)) {
+        if (taVazio(usuario.email) || taVazio(usuario.senha)) {
             alert ("Todos os campos devem ser preenchidos");
             return ;
         }
@@ -422,9 +461,9 @@ $(function(){
         $.getJSON("http://rest.learncode.academy/api/mariajesca/usuariosloja", function(result, status){
             if(status == "success"){
                 $.each(result, function(i, dado){
-                    if(dado.nome == usuario.nome || dado.email == usuario.nome){
+                    if(dado.email == usuario.email){
                         if(dado.senha == usuario.senha){
-                            localStorage.user = usuario;
+                            localStorage.user = JSON.stringify(dado);
                             $("#login_campo_usuario").val("");
                             $("#login_campo_senha").val("");
                             mostrarCarEOut(); 
@@ -438,8 +477,17 @@ $(function(){
         });     
     });
 
-    
+    $(".carrinho").click(function(){
+        console.log(carrinho);
+        if(localStorage.carrinho == "" || localStorage.carrinho == undefined){
+            $("#finalizar").css("display", "none");
+        }
 
+        else {
+            $("#finalizar").css("display", "block");
+        }
+    });
+    
     $("#sair").click(function(evento){
         evento.preventDefault();
         // dar a opção da pessoa querer confirmar a saída ou não

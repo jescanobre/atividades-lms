@@ -116,13 +116,13 @@
                                 <form id="login-form" method="post" autocomplete="off">
 
                                     <div class="form-group">
-                                        <label for="usuario">Nome</label>
-                                        <input type="text" name="usuario" id="login_campo_usuario" tabindex="1" class="form-control" placeholder="Nome do usuário" value="" autocomplete="off">
+                                        <label for="usuario">Email</label>
+                                        <input type="text" name="usuario" id="login_campo_usuario" tabindex="1" class="form-control" placeholder="Qual seu e-mail?" value="" autocomplete="off">
                                     </div>
 
                                     <div class="form-group">
                                         <label for="senha">Senha</label>
-                                        <input type="password" name="senha" id="login_campo_senha" tabindex="2" class="form-control" placeholder="Senha" autocomplete="off">
+                                        <input type="password" name="senha" id="login_campo_senha" tabindex="2" class="form-control" placeholder="Qual sua senha?" autocomplete="off">
                                     </div>
 
                                     <div class="form-group">
@@ -155,21 +155,6 @@
                             </div>
                         </div>
                     </div>
-
-                    <div class="nav-item dropdown historico">
-                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"><span  aria-hidden="true"></span>  Histórico de compras </a>
-                            <div class="dropdown-menu dropdown-menu-right" role="menu">
-                                <div class="col-lg-12">
-                                    <div class="text-center"><h5><b>Histórico de compras </b></h5>
-                                    
-                                    </div>
-                                    <div id="historico" class="row">
-
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
 
                     <div class="nav-item sair">
                         <a class="nav-link" id="sair" href="galeria-produtos.html"><span class="fa fa-sign-out" aria-hidden="true"></span>  Sair</a>
@@ -243,40 +228,45 @@
                 </table>
             </div>
         </div>
+
+        <div class="row"> 
+                <div class="col-sm-12 col-md-10 offset-1">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Data</th>
+                                    <th>Hora</th>
+                                    <th class="text-center">Total</th>
+                                    <th> </th>
+                                </tr>
+                            </thead>
+                            <tbody id="historico">
+                                <!-- <tr> -->
+                                    <!-- <td class="col-sm-8 col-md-6">
+                                        <div class="media">
+                                            <img class="media-object" src="http://icons.iconarchive.com/icons/custom-icon-design/flatastic-2/72/product-icon.png" style="width: 72px; height: 72px;">
+                                            <div class="media-body">
+                                                <h4 class="media-heading" style="margin: 17px 10px;">Nome do Produto</h4>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="col-sm-1 col-md-1" style="text-align: center">
+                                        <input type="number" class="form-control" id="exampleInputEmail1" value="3" min="1">
+                                    </td>
+                                    <td class="col-sm-1 col-md-1 text-center"><strong>R$4.87</strong></td>
+                                    <td class="col-sm-1 col-md-1 text-center"><strong>R$14.61</strong></td>
+                                    <td class="col-sm-1 col-md-1">
+                                        <button type="button" class="btn btn-danger">
+                                    <span class="glyphicon glyphicon-remove"></span> Remover
+                                </button></td> -->
+                                <!-- </tr> -->
+                            
+                            </tbody>
+                        </table>
+                    </div>
+        </div>
     </div>
-    <!-- <div>
-        <div class="col-md-12">
-            <div class="text-center"><h3><b>Meu carrinho</b></h3></div>
-
-                <div>
-                    <div class="row ">
-                        <div class="col-10" >
-                            <div class="row">
-                                <div class="col-3">
-                                    <img style="width: 70px;" src="img/eleven.jpg">
-                                </div>
-                                    
-                                <div class="col-7 offset-2">
-                                    <div class="row"> Funko Eleven</div>
-                                    <div class="row">
-                                        <div class="col-8 justify-content"><span class="card-text"><small class="text-muted">Quantidade:1</small></span></div>
-                                        <div class="col-4 justify-content"><span style="font-size: 13px;" class="card-text">R$40,00</span></div>
-                                    </div>
-                                </div> 
-                            </div>
-                                                                                
-
-                        </div>
-                        <br>
-                        <div class="col-2">
-                            <div class="row justify-content-center"> <span class="fa fa-times" aria-hidden="true"> </span></div>
-
-                        </div>
-                </div>
-            </div>
-
-            </div>
-            </div> -->
+  
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js" ></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
