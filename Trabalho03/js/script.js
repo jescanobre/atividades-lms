@@ -126,7 +126,8 @@ $(function(){
             // console.log(quantidade);
 
             if(localStorage.carrinho == undefined || localStorage.carrinho.length == 0){
-                let carrinho = [produto];
+                let carrinho = [];
+                carrinho.push(produto);
                 localStorage.carrinho = JSON.stringify(carrinho);
             }
             
@@ -211,12 +212,18 @@ $(function(){
         $compras.html("");
         $carrinho = JSON.parse(localStorage.carrinho);
         console.log($carrinho);
-        $.each($carrinho, function(i, produto){
-            if(produto != undefined){
-                addAoCarrinho(produto);
-            }
-        });
-    }
+        if($carrinho.length == 1){
+            addAoCarrinho($carrinho[0]);
+        }
+        else {
+            $.each($carrinho, function(i, produto){
+                if(produto != undefined){
+                    addAoCarrinho(produto);
+                }
+            });
+        }
+        
+     }
     mostrarCarrinho();
 
     
